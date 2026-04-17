@@ -1,0 +1,46 @@
+models:
+  grok-4.20:
+    provider: openrouter
+    api_key_env: OPENROUTER_API_KEY
+    model_id: x-ai/grok-4.20
+    temperature: 0.8
+    top_p: 0.95
+    max_tokens: 4096
+  gpt-5.4-codex:
+    provider: openai
+    api_key_env: OPENAI_API_KEY
+    model_id: gpt-5.4
+    temperature: 0.8
+    top_p: 0.95
+    max_tokens: 2048
+  claude-sonnet-4.6:
+    provider: anthropic
+    api_key_env: ANTHROPIC_API_KEY
+    model_id: claude-sonnet-4-6
+    temperature: 0.8
+    top_p: 0.95
+    max_tokens: 2048
+  claude-opus-4.6:
+    provider: anthropic
+    api_key_env: ANTHROPIC_API_KEY
+    model_id: claude-opus-4-6
+    temperature: 0.8
+    top_p: 0.95
+    max_tokens: 2048
+  gemini-3.1-pro:
+    provider: openrouter
+    api_key_env: OPENROUTER_API_KEY
+    model_id: google/gemini-3.1-pro-preview
+    temperature: 0.8
+    top_p: 0.95
+    max_tokens: 4096
+
+execution:
+  python_timeout_sec: 180
+  max_injection_retries: 5
+  docker_timeout_sec: 600
+
+experiment:
+  pass_k_values: [1, 3]
+  n_samples: 3
+  target_cases_per_model_per_bug_type: 10
